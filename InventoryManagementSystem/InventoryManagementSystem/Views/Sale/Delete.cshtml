@@ -1,0 +1,57 @@
+﻿@model InventoryManagementSystem.Models.Sale
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3 class="text-danger">Are you sure you want to delete this?</h3>
+
+<div>
+    <h4>Saled Product Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayName("Product Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_prod)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Product Quantity")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_qnty)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Product Price")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Sale date")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale_date)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @Html.ActionLink("Cancel", "DisplaySale", "Sale", new { }, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
